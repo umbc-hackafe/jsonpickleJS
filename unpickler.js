@@ -344,11 +344,8 @@ define(['./util', './handlers', './tags'], function(util, handlers, tags) {
     
     // http://stackoverflow.com/questions/1606797/use-of-apply-with-new-operator-is-this-possible
     unpickler.construct = function (constructor, args) {
-        function F() {
-            return constructor.apply(this, args);
-        }
-        F.prototype = constructor.prototype;
-        return new F();
+        // This requires ECMAScript 5
+        return new constructor(...args);
     };
     
     if (jsonpickle !== undefined) {

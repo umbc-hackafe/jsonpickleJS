@@ -103,7 +103,6 @@ define(['./util', './handlers', './tags'], function(util, handlers, tags) {
             this.reset();
         }
         var flatOut = this._flatten(obj);
-        console.log(this._objs);
         return flatOut;
     };
     
@@ -198,7 +197,6 @@ define(['./util', './handlers', './tags'], function(util, handlers, tags) {
             var fullModuleName = pickler._getclassdetail(obj);
             if (this.unpicklable) {
                 data[tags.OBJECT] = fullModuleName;
-                console.log(data);
             }
             handler = handlers[fullModuleName];
             if (handler !== undefined) {
